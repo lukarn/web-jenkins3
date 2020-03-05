@@ -1,8 +1,11 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class KarieraPage extends Page {
 
@@ -43,10 +46,15 @@ public class KarieraPage extends Page {
     public KarieraPage setJobListOptionButton(String listOption)
     {
         clickElement(waitAndGetCssLocator("li[class*='o-Dropdown__Option'][data-elementname*='" + listOption + "']"));
+
+        WebDriverWait wait = new WebDriverWait(driver, 100);
+        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector("li[class*='o-Dropdown__Option'][data-elementname*='Wszystkie']"))));
+
         return this;
     }
 
 
+//  $$("li[class*='o-Dropdown__Option'][data-elementname*='Wszystkie']")
     //  .o-JobsList__Elem
 
 
