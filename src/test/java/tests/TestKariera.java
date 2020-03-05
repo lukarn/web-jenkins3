@@ -43,17 +43,10 @@ public class TestKariera
     }
 
     @BeforeSuite()
-    public void BeforeSuite(int p1, String p2, String p3)
+    public void BeforeSuite()
     {
         System.out.println("==============================================");
-        System.out.println("=Test suite parameters(env. variables)       =");
-        System.out.println("p1=" + p1);
-        System.out.println("p2=" + p2);
-        System.out.println("p3=" + p3);
-        System.out.println("==============================================");
-        System.out.println("=envBasePage: " + envBasePage);
-        System.out.println("=envJobArea: " + envJobArea);
-        System.out.println("=envTimeoutIsAt: " + envTimeoutIsAt);
+        System.out.println("=Test suite START                            =");
         System.out.println("==============================================");
     }
 
@@ -75,6 +68,18 @@ public class TestKariera
     //  , enabled = false
     @Test(dataProvider="getData", enabled = false)
     public void launch(int p1, String p2, String p3) {
+
+        System.out.println("==============================================");
+        System.out.println("=Test suite parameters(env. variables)       =");
+        System.out.println("p1=" + p1);
+        System.out.println("p2=" + p2);
+        System.out.println("p3=" + p3);
+        System.out.println("==============================================");
+        System.out.println("=envBasePage: " + envBasePage);
+        System.out.println("=envJobArea: " + envJobArea);
+        System.out.println("=envTimeoutIsAt: " + envTimeoutIsAt);
+        System.out.println("==============================================");
+
         // setup driver
         DriverManager driverManager = new DriverManager(driver);
         //usingBrowser=p3;
@@ -101,6 +106,8 @@ public class TestKariera
                 .setOfertyPracyMenuButton()
                 .setJobListFilterButton()
                 .setJobListOptionButton(envJobArea);
+
+        Assert.fail(">>>>>>>>>>>>> falitest");
 
         //  Assert.assertTrue(karieraPage.isAt(envTimeoutIsAt), "----------Log in fail - you are not on MainPage");
 
