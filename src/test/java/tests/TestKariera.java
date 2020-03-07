@@ -1,5 +1,8 @@
 package tests;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +13,12 @@ import pages.BasePage;
 import pages.KarieraPage;
 import pages.JobPage;
 import utilities.DriverManager;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class TestKariera
@@ -39,13 +48,35 @@ public class TestKariera
     private KarieraPage karieraPage;
     private JobPage jobPage;
 
+    // Take screenshots
+    private void takeScreenshot() {
+        TakesScreenshot ts;
+        ts = (TakesScreenshot) driver;
+
+        if (ts != null) {
+            File srcFile = ts.getScreenshotAs(OutputType.FILE);
+
+            try {
+                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+                Date date = new Date();
+
+                //ScreenShot
+                FileUtils.copyFile(srcFile, new File(System.getProperty("user.dir") + "/screenShots/OK " + envJobArea + " " + envJobLevel + " " + dateFormat.format(date) + ".png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("No driver - no photo.");
+        }
+
+    }
 
     @DataProvider
     public Object[][] getData()
     {
         return new Object[][]{
                 {1, envBasePage, "chrome"},
-//                {2, envBasePage, "firefox"},
+                {2, envBasePage, "firefox"},
         };
     }
 
@@ -128,9 +159,9 @@ public class TestKariera
 
         Assert.assertTrue(jobPage.isAt(envTimeoutIsAt), "----------JobPage not loaded!");
 
-        Assert.fail(">>>>>>>>>>>>> fail test");
-
-
+        if (p3.equalsIgnoreCase("chrome")) {
+            takeScreenshot();
+        }
 
     }
 
