@@ -26,22 +26,22 @@ public class TestKariera
     public static WebDriver driver;
 
     //from Jenkins
-//    private String envLoginPage = System.getenv("LOGIN_PAGE");
-//    private String envLoginLogin = System.getenv("LOGIN_LOGIN");
-//    private String envLoginPassword = System.getenv("LOGIN_PASSWORD");
-//    private int envTimeoutIsAt = Integer.parseInt(System.getenv("TEST_TIMEOUT"));
+    private String envBasePage = System.getenv("envBasePage");
+    private String envJobArea = System.getenv("envJobArea");
+    private String envJobLevel = System.getenv("envJobLevel");
+    private int envTimeoutIsAt = Integer.parseInt(System.getenv("envTimeoutIsAt"));
 
 //    //from here
-    private String envBasePage = "https://www.future-processing.pl/";
-
-    private String envJobArea = "Quality Assurance";
-//    private String envJobArea = "Developer";
-
-//    private String envJobLevel = "Medium";
-    private String envJobLevel = "Senior";
-//    private String envJobLevel = "Junior";
-
-    private int envTimeoutIsAt = 60;
+//    private String envBasePage = "https://www.future-processing.pl/";
+//
+//    private String envJobArea = "Quality Assurance";
+////    private String envJobArea = "Developer";
+//
+////    private String envJobLevel = "Medium";
+//    private String envJobLevel = "Senior";
+////    private String envJobLevel = "Junior";
+//
+//    private int envTimeoutIsAt = 60;
 
     // Page Objects
     private BasePage basePage;
