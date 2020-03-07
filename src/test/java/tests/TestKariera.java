@@ -24,7 +24,14 @@ public class TestKariera
 
 //    //from here
     private String envBasePage = "https://www.future-processing.pl/";
+
     private String envJobArea = "Quality Assurance";
+//    private String envJobArea = "Developer";
+
+//    private String envJobLevel = "Medium";
+    private String envJobLevel = "Senior";
+//    private String envJobLevel = "Junior";
+
     private int envTimeoutIsAt = 60;
 
     // Page Objects
@@ -38,7 +45,7 @@ public class TestKariera
     {
         return new Object[][]{
                 {1, envBasePage, "chrome"},
-                {2, envBasePage, "firefox"},
+//                {2, envBasePage, "firefox"},
         };
     }
 
@@ -77,6 +84,7 @@ public class TestKariera
         System.out.println("==============================================");
         System.out.println("=envBasePage: " + envBasePage);
         System.out.println("=envJobArea: " + envJobArea);
+        System.out.println("=envJobLevel: " + envJobLevel);
         System.out.println("=envTimeoutIsAt: " + envTimeoutIsAt);
         System.out.println("==============================================");
 
@@ -107,9 +115,22 @@ public class TestKariera
                 .setJobListFilterButton()
                 .setJobListOptionButton(envJobArea);
 
-        Assert.fail(">>>>>>>>>>>>> falitest");
+          Assert.assertTrue((karieraPage.jobCount() > 0), "----------No job offers found. Check your job area. [NOK]");
+//          Assert.fail(">>>>>>>>>>>>> fail test");
 
-        //  Assert.assertTrue(karieraPage.isAt(envTimeoutIsAt), "----------Log in fail - you are not on MainPage");
+    }
+
+    @Test(dataProvider="getData", dependsOnMethods = { "goToJobsAndSearch" })
+    public void enterJobOffer(int p1, String p2, String p3) {
+        goToJobsAndSearch(p1, p2, p3);
+
+        karieraPage.setFirstJobWithLevel(envJobLevel);
+
+        Assert.assertTrue(jobPage.isAt(envTimeoutIsAt), "----------JobPage not loaded!");
+
+        Assert.fail(">>>>>>>>>>>>> fail test");
+
+
 
     }
 

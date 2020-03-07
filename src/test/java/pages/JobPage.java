@@ -8,12 +8,12 @@ public class JobPage extends Page {
 
     @Override
     public boolean isAt(){
-        return this.activatePushesButton.isDisplayed();
+        return this.applyButton.isDisplayed();
     }
 
 
-    @FindBy(css = "#activatePushes")
-    private WebElement activatePushesButton;
+    @FindBy(css = ".o-Button.js-ModalOpen")
+    private WebElement applyButton;
 
 
     public JobPage(WebDriver driver)
