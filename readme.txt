@@ -1,5 +1,5 @@
-web test exercises (Jenkins with github, env. variables)
-https://youtu.be/x0FrZZblecM
+web test exercises (Jenkins multijob with github, env. variables)
+https://youtu.be/aBpCgDTERlc
 env. variables directly in Jenkins job
 
 launch by Maven: fp\pom.xml (listener with screenshots on test fail)
