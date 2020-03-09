@@ -45,8 +45,14 @@ public class KarieraPage extends Page {
 
     public KarieraPage setJobListFilterButton()
     {
-        clickElement(this.jobListFilterButton);
-        WebDriverWait wait = new WebDriverWait(driver, 1);
+        try {
+            clickElement(this.jobListFilterButton);
+        }catch (Exception e){
+            clickElement(this.jobListFilterButton);
+        }
+
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("li[class*='o-Dropdown__Option'][data-elementname*='Wszystkie']"))));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("li[class*='o-Dropdown__Option'][data-elementname*='Developer']"))));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("li[class*='o-Dropdown__Option'][data-elementname*='Inne']"))));
