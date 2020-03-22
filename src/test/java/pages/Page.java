@@ -49,9 +49,9 @@ public abstract class Page {
 
         for(int i=0; i<10000; i++) {
             try {
-                Thread.sleep(1);
+                Thread.sleep(100);
                 clickLocator.click();
-                i=10000;
+                i=100;
             } catch (Exception ignored) {
             }
         }
