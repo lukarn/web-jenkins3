@@ -51,7 +51,7 @@ public class DriverManager {
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--window-size=1920,1480");
 
 
         WebDriver driver = null;
@@ -78,7 +78,7 @@ public class DriverManager {
         options.setProfile(myProfile);
         options.setHeadless(true);
         options.addArguments("--width=1920");
-        options.addArguments("--height=1080");
+        options.addArguments("--height=1480");
 
 
         WebDriver driver = null;

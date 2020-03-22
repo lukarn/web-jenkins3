@@ -17,11 +17,11 @@ import static org.awaitility.Awaitility.await;
 public abstract class Page {
 
     static WebDriver driver;
-    static WebDriverWait wait;
+    private static WebDriverWait wait;
     Page(WebDriver driver)
     {
         Page.driver = driver;
-        Page.wait = new WebDriverWait(driver, 30);
+        Page.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
     }
 
@@ -43,6 +43,8 @@ public abstract class Page {
         String myTime = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
         System.out.print(myTime + " Clicking locator: " + clickLocator + " on page with title: " + driver.getTitle() );
 
+        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,0);");
+        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,1000);");
         ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,0);");
 
         for(int i=0; i<10000; i++) {
