@@ -31,7 +31,7 @@ public class TestKariera
     private String envJobLevel = System.getenv("envJobLevel");
     private int envTimeoutIsAt = Integer.parseInt(System.getenv("envTimeoutIsAt"));
 
-//    //from here
+    //from here
 //    private String envBasePage = "https://www.future-processing.pl/";
 //
 //    private String envJobArea = "Quality Assurance";

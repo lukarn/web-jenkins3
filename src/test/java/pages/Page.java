@@ -47,7 +47,7 @@ public abstract class Page {
         ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,1000);");
         ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,0);");
 
-        for(int i=0; i<10000; i++) {
+        for(int i=0; i<100; i++) {
             try {
                 Thread.sleep(100);
                 clickLocator.click();
