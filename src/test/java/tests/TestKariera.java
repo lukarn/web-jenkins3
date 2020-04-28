@@ -26,20 +26,19 @@ public class TestKariera
     public static WebDriver driver;
 
     //from Jenkins
-//    private String envBasePage = System.getenv("envBasePage");
-//    private String envJobArea = System.getenv("envJobArea");
-//    private String envJobLevel = System.getenv("envJobLevel");
-//    private int envTimeoutIsAt = Integer.parseInt(System.getenv("envTimeoutIsAt"));
+    private String envBasePage = System.getenv("envBasePage");
+    private String envJobArea = System.getenv("envJobArea");
+    private String envJobLevel = System.getenv("envJobLevel");
+    private int envTimeoutIsAt = Integer.parseInt(System.getenv("envTimeoutIsAt"));
 
     //from here
-    private String envBasePage = "https://www.future-processing.pl/";
-//    private String envJobArea = "Quality Assurance";
-    private String envJobArea = "Developer";
-//    private String envJobLevel = "Medium";
-    private String envJobLevel = "Senior";
-//    private String envJobLevel = "Junior";
-
-    private int envTimeoutIsAt = 60;
+//    private String envBasePage = "https://www.future-processing.pl/";
+////    private String envJobArea = "Quality Assurance";
+//    private String envJobArea = "Developer";
+////    private String envJobLevel = "Medium";
+//    private String envJobLevel = "Senior";
+////    private String envJobLevel = "Junior";
+//    private int envTimeoutIsAt = 60;
 
     // Page Objects
     private BasePage basePage;
@@ -137,8 +136,6 @@ public class TestKariera
     @Test(dataProvider="getData")
     public void goToJobsAndSearch(int p1, String p2, String p3) {
         launch(p1, p2, p3);
-
-        int i = 1/0;
 
 
         basePage.setKarieraMenuButton()
