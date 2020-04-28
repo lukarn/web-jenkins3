@@ -34,8 +34,8 @@ public class TestKariera
     //from here
 //    private String envBasePage = "https://www.future-processing.pl/";
 //
-//    private String envJobArea = "Quality Assurance";
-////    private String envJobArea = "Developer";
+////    private String envJobArea = "Quality Assurance";
+//    private String envJobArea = "Developer";
 //
 ////    private String envJobLevel = "Medium";
 //    private String envJobLevel = "Senior";
@@ -76,7 +76,7 @@ public class TestKariera
     {
         return new Object[][]{
                 {1, envBasePage, "chrome"},
-                {2, envBasePage, "firefox"},
+//                {2, envBasePage, "firefox"},
         };
     }
 
