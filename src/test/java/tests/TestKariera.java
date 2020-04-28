@@ -135,7 +135,7 @@ public class TestKariera
     }
 
     @Test(dataProvider="getData")
-    public void goToJobsAndSearch(int p1, String p2, String p3) throws Exception {
+    public void goToJobsAndSearch(int p1, String p2, String p3) {
         launch(p1, p2, p3);
 
         int i = 1/0;
@@ -152,7 +152,7 @@ public class TestKariera
     }
 
     @Test(dataProvider="getData", dependsOnMethods = { "goToJobsAndSearch" })
-    public void enterJobOffer(int p1, String p2, String p3) throws Exception {
+    public void enterJobOffer(int p1, String p2, String p3) {
         goToJobsAndSearch(p1, p2, p3);
 
         karieraPage.setFirstJobWithLevel(envJobLevel);
